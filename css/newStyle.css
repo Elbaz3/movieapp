@@ -1,0 +1,158 @@
+
+@import "tailwindcss";
+
+@layer base {
+      * {
+        @apply m-0 p-0 box-border list-none no-underline;
+        scroll-padding-top: 2rem;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+    
+      html::-webkit-scrollbar {
+        width: 0.5rem;
+        background-color: #020307;
+      }
+    
+      html::-webkit-scrollbar-thumb {
+        background-color: #ff2c1f;
+        border-radius: 5rem;
+      }
+    
+      :root {
+        --main-color: #ff2c1f;
+        --text-color: #020307;
+        --bg-color: #fff;
+      }
+      .main-color {
+        @apply text-red-600;
+      }
+      .text-color {
+        @apply text-black;
+      }
+      
+    
+      section {
+        @apply py-18 px-6;
+      }
+    
+      body {
+        @apply font-[Poppins] bg-black text-red-600;
+      }
+      .navbar li {
+            @apply relative
+      }
+      .navbar a {
+            @apply text-base font-medium text-red-600
+            max-md:text-black max-md:delay-10 max-md:ease-linear
+              max-md:transition-all max-md:hover:text-red-600
+              max-md:hover:border-b-2 
+            max-md:hover:border-b-red-600;
+      }
+}
+
+header.shadow {
+      @apply bg-white shadow-2xl;
+
+}
+header.shadow .navbar a {
+      color: var(--text-color);
+}
+    header.shadow .logo  {
+      color: var(--text-color);
+}
+
+.navbar a::after{
+      content: '';
+      position: absolute;
+      background-color: var(--main-color);
+      width: 0;
+      height: 3px;
+      left: 0;
+      bottom: -4px;
+      transition: 0.2s all linear;
+}
+.navbar a:hover::after,
+.navbar .home-active::after {
+      width: 100%;
+}
+
+.box-img img {
+      @apply w-full h-full object-cover cursor-pointer transition-all delay-80 ease-linear hover:translate-y-[-10px];
+}
+.box-img {
+      @apply w-full h-[270px];
+}
+
+.heading {
+      @apply font-medium text-[1.2rem] uppercase border-b border-b-red-500 max-w-[1000px] mx-auto
+}
+
+.movies-container, .coming-container {
+      @apply  max-w-[1000px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(180px,auto))] gap-4 mt-8
+      
+}
+.box h3 {
+      @apply text-[0.9rem] font-medium text-red-600 max-w-[1000px] mx-auto
+}
+.box span {
+      @apply text-[13px]
+}
+.social-icons a {
+      @apply w-[55px] h-[55px] rounded-full text-[2rem] text-center 
+      flex items-center justify-center bg-amber-50 text-red-600
+      delay-80 ease-linear transition-all border-[#02030766] border-4
+      hover:bg-red-600 hover:text-amber-50 
+}
+section {
+  @apply max-lg:py-[50px] max-lg:px-[4%]
+}
+
+.navbar.active {
+  @apply max-md:top-[100%]
+}
+.btn {
+  @apply max-md:py-[0.6rem] max-md:px-[1.2rem]
+} 
+/* Resbonsive */
+    @media (max-width:774px) {
+
+      .navbar a::after {
+        display: none;
+      }
+
+    }
+    @media (max-width: 472px) {
+      .footer {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+      }
+      .news form  .email {
+        display: none;
+      }
+    }
+    @media (max-width: 370px) {
+      header {
+        padding: 6px 4%;
+      }
+      .home-text h2 {
+        font-size: 1.7rem;
+      }
+      .movies-container,
+      .coming-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px ,auto));
+      }
+      .box .box-img img {
+        height: 240px;
+      }
+    }
+    @media (max-width: 300px) {
+      .home-text h2 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    /* Resbonsive */
